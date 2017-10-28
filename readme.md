@@ -1,6 +1,9 @@
 # go-bittrex-bot
 Go Bittrex Bot is the auto alert library that help you watch the price of crypto currency from bittrex.com
 
+## Prerequisite
+You need to setup Slack 'Incoming WebHooks' app. The setup will provide you the webhook url, you'll need that for the `config.json`
+
 ## Usage
 1. Copy `config.json.example` to `config.json` and update it to match your need.
 2. Run the script using this command `./go-bittrex-bot`. Any alert will go to your Slack, according to the `web_hook_url` that you setup in `config.json` file
@@ -46,3 +49,6 @@ The explanation is already commented in `config.json.example`
   }
 }
 ```
+
+## Slack alert example
+![Image of Example from Slack](https://image.prntscr.com/image/zMdGpZ06RjC_NansZ4ntgg.png)
