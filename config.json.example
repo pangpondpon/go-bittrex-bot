@@ -1,0 +1,21 @@
+{
+  "credentials": {
+    "api_key": "API_KEY",
+    "api_secret": "API_SECRET"
+  },
+  "pairs": [
+    {
+      "symbol": "BTC-XEM",
+      "threshold": 1.0
+    },
+    {
+      "symbol": "BTC-ADA",
+      "threshold": 0.1
+    }
+  ],
+  "slack": {
+    "web_hook_url": "",
+    "user_name": "",
+    "icon_emoji": ":dollar:",
+  }
+}
