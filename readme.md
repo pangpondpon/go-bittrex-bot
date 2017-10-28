@@ -14,7 +14,7 @@ Go Bittrex Bot is the auto alert library that help you watch the price of crypto
 ```
 // Open cron job using 'crontab -e' command
 // After run 'crontab -e' add this to cronjob file
- * * * * * ./path/to/go-bittrex-bot
+ * * * * * /path/to/go-bittrex-bot
 ```
 
 ## Config file explanation
