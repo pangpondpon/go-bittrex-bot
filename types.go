@@ -13,6 +13,7 @@ type Credentials struct {
 
 type Pair struct {
 	Symbol    string  `json:"symbol"`
+	Above     bool    `json:"above"`
 	Threshold float64 `json:"threshold"`
 }
 

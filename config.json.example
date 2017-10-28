@@ -1,15 +1,23 @@
 {
   "credentials": {
+    // Get Credential from Bittrex Api Key page in bittrex.com
+    // https://bittrex.com/Manage#sectionApi
     "api_key": "API_KEY",
     "api_secret": "API_SECRET"
   },
   "pairs": [
     {
       "symbol": "BTC-XEM",
-      "threshold": 1.0
+
+       // If above is true, the code will alert if 'current price >= threshold'
+       // If above is false, the code will alert if 'current price <= threshold'
+      "above": true,
+
+      "threshold": 1.0 // Threshold is in dollar
     },
     {
       "symbol": "BTC-ADA",
+      "above": true,
       "threshold": 0.1
     }
   ],

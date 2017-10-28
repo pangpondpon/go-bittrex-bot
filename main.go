@@ -53,8 +53,12 @@ func processPair(pair Pair) {
 	ticker := pairTicker(pair)
 	tickerPriceInUsd := btcToUsd(ticker.Bid)
 
-	if tickerPriceInUsd >= pair.Threshold {
+	if pair.Above && tickerPriceInUsd >= pair.Threshold {
 		alertPriceAboveThreshold(pair.Symbol, tickerPriceInUsd, pair.Threshold)
+	}
+
+	if !pair.Above && tickerPriceInUsd <= pair.Threshold {
+		alertPriceBelowThreshold(pair.Symbol, tickerPriceInUsd, pair.Threshold)
 	}
 }
 
@@ -73,6 +77,11 @@ func pairTicker(pair Pair) bittrex.Ticker {
 
 func alertPriceAboveThreshold(symbol string, price, threshold float64) {
 	message := fmt.Sprintf("The price of %s pair ($%.2f) is above the threshold ($%.2f).", symbol, price, threshold)
+	sendSlackMessage(message)
+}
+
+func alertPriceBelowThreshold(symbol string, price, threshold float64) {
+	message := fmt.Sprintf("The price of %s pair ($%.2f) is below the threshold ($%.2f).", symbol, price, threshold)
 	sendSlackMessage(message)
 }
 
