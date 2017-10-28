@@ -15,7 +15,7 @@ Go Bittrex Bot is the auto alert library that help you watch the price of crypto
 ## Config file explanation
 The explanation is already commented in `config.json.example`
 
-```json
+```
 {
   "credentials": {
     // Get Credential from Bittrex Api Key page in bittrex.com
