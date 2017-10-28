@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"github.com/toorop/go-bittrex"
 	"github.com/ashwanthkumar/slack-go-webhook"
+	"path/filepath"
 )
 
 var c Config
@@ -23,7 +24,8 @@ func main() {
 }
 
 func getConfig() Config {
-	raw, err := ioutil.ReadFile("./config.json")
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	raw, err := ioutil.ReadFile(dir + "/config.json")
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
@@ -86,9 +88,9 @@ func alertPriceBelowThreshold(symbol string, price, threshold float64) {
 }
 
 func sendSlackMessage(message string) {
-	payload := slack.Payload {
-		Text: message,
-		Username: c.Slack.UserName,
+	payload := slack.Payload{
+		Text:      message,
+		Username:  c.Slack.UserName,
 		IconEmoji: c.Slack.IconEmoji,
 	}
 	slack.Send(c.Slack.WebHookUrl, "", payload)
